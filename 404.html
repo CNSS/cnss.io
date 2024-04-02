@@ -1,124 +1,127 @@
 <!doctype html>
 <html lang="zh">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>CNSS</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-        <link rel="manifest" href="/favicon/site.webmanifest">
-        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
-        <link rel="shortcut icon" href="/favicon.ico">
-        <meta name="msapplication-TileColor" content="#2b5797">
-        <meta name="msapplication-config" content="/favicon/browserconfig.xml">
-        <meta name="theme-color" content="#ffffff">
+    <title>404</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <!-- Styles -->
+    <style>
+        html {
+            font-size: 3vmin;
+        }
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #2C3E50;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            min-height: 100px;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-            .full-height {
-                height: 100vh;
-            }
+        #d1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20vmin;
+        }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+        #logo {
+            margin: 1em;
+            order: 1;
+            height: 100%;
+        }
 
-            .position-ref {
-                position: relative;
-            }
+        #d2 {
+            margin: 1em;
+            order: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+        #h404 {
+            margin: 0;
+            order: 1;
+            font-size: 3em;
+            height: 60%;
+        }
 
-            .content {
-                text-align: center;
-            }
+        #text {
+            margin: 0;
+            order: 2;
+            font-size: 1em;
+            height: 20%;
+        }
 
-            .title {
-                font-size: 84px;
-            }
+        #countdownDiv {
+            order: 3;
+            height: 20%;
+            display: flex;
+        }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+        #countdown {
+            margin: 0;
+            order: 1;
+            font-size: 0.8em;
+        }
 
-            .links > a:hover {
-                color: #2C3E50;
-            }
+        #countdownText {
+            margin: 0;
+            margin-left: 0.2em;
+            order: 2;
+            font-size: 0.8em;
+        }
+    </style>
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
+</head>
 
-            #logo {
-                width: 1em;
-                float: left;
-                margin: 10px;
-            }
-
-            #logo:hover {
-                animation: rotation 0.6s infinite linear;
-            }
-
-            @keyframes rotation {
-                from {
-                    transform: rotate(360deg);
-                }
-                to {
-                    transform: rotate(0deg);
-                }
-            }
-
-            @media screen and (max-width: 360px) {
-                #logo {
-                    width: 1.5em;
-                    margin-bottom: -0.3em;
-                    float: none;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
-                    <img id="logo" src="logo.png">
-                    CNSS
-                </div>
-
-                <div class="links">
-                    <a href="https://blog.cnss.io">Blog</a>
-                    <a href="https://recruit.cnss.io">Recruit</a>
-                    <a href="https://github.com/CNSS">GitHub</a>
-                </div>
+<body>
+    <div id="d1">
+        <img src="logo.png" id="logo">
+        <div id="d2">
+            <h1 id="h404">404</h1>
+            <p id="text">这里没有 FLAG 喵 ~</p>
+            <div id="countdownDiv">
+                <span id="countdown">10</span>
+                <span id="countdownText">s 后返回主页</span>
             </div>
+
         </div>
-    </body>
+
+    </div>
+
+    <!-- 10s后重定向 -->
+    <script>
+        var countdownElement = document.getElementById("countdown");
+        var countdownValue = parseInt(countdownElement.innerText);
+
+        var countdownInterval = setInterval(function () {
+            countdownValue--;
+            countdownElement.innerText = countdownValue;
+
+            if (countdownValue <= 0) {
+                clearInterval(countdownInterval);
+                window.location.href = "/";
+            }
+        }, 1000);
+    </script>
+
+    <!-- 跟随暗色 -->
+    <script>
+        var prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (prefersDarkMode) {
+            // Apply the inverted color style
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+    </script>
+</body>
+
 </html>
