@@ -1,13 +1,13 @@
-<!doctype html>
-<html lang="zh">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <title>CNSS</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>CNSS</title>
-
-    <!-- Favicon -->
+    
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
@@ -17,113 +17,224 @@
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="msapplication-config" content="/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-
-    <!-- Fonts -->
+    
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-    <!-- Styles -->
-    <style>
-        html,
-        body {
-            background-color: #fff;
-            color: #2C3E50;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links>a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .links>a:hover {
-            color: #2C3E50;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-
-        #logo {
-            width: 1em;
-            float: left;
-            margin: 10px;
-        }
-
-        #logo:hover {
-            animation: rotation 0.6s infinite linear;
-        }
-
-        @keyframes rotation {
-            from {
-                transform: rotate(360deg);
-            }
-
-            to {
-                transform: rotate(0deg);
-            }
-        }
-
-        @media screen and (max-width: 360px) {
-            #logo {
-                width: 1.5em;
-                margin-bottom: -0.3em;
-                float: none;
-            }
-        }
-    </style>
 </head>
+<style>
+    html,
+    body {
+        background-color: #fff;
+        color: #2C3E50;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 200;
+        height: 100vh;
+        margin: 0;
+    }
 
+    .full-height {
+        height: 100vh;
+    }
+
+    .flex-center {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .position-ref {
+        position: relative;
+    }
+
+    .top-right {
+        position: absolute;
+        right: 10px;
+        top: 18px;
+    }
+
+    .content {
+        text-align: center;
+    }
+
+    .title {
+        font-size: 84px;
+    }
+
+    .links>a {
+        color: #636b6f;
+        padding: 0 25px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .links>a:hover {
+        color: #2C3E50;
+    }
+
+    .m-b-md {
+        margin-bottom: 30px;
+    }
+
+    #logo {
+        width: 1em;
+        float: left;
+        margin: 10px;
+    }
+
+    #logo:hover {
+        animation: rotation 0.6s infinite linear;
+    }
+
+    @keyframes rotation {
+        from {
+            transform: rotate(360deg);
+        }
+
+        to {
+            transform: rotate(0deg);
+        }
+    }
+
+    @media screen and (max-width: 360px) {
+        #logo {
+            width: 1.5em;
+            margin-bottom: -0.3em;
+            float: none;
+        }
+    }
+</style>
+<style type="text/css">
+
+    .ui-flex {
+        display: -webkit-box !important;
+        display: -webkit-flex !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+
+    .ui-flex, .ui-flex *, .ui-flex :after, .ui-flex :before {
+        box-sizing: border-box
+    }
+
+    .ui-flex.justify-center {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center
+    }
+    .ui-flex.center {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center
+    }
+</style>
 <body>
-    <div class="flex-center position-ref full-height">
+    <div>
+        <div class="flex-center position-ref full-height">
         <div class="content">
-            <div class="title m-b-md">
-                <img id="logo" src="image/logo/cnss-text.png">
-                CNSS
-            </div>
-
-            <div class="links">
-                <a href="https://blog.cnss.io">Blog</a>
-                <a href="https://recruit.cnss.io">Recruit</a>
-                <a href="https://github.com/CNSS">GitHub</a>
-            </div>
+        <div class="title m-b-md">
+        <img id="logo" src="image/logo/cnss-text.png">
+        CNSS
         </div>
+        <div class="links">
+        <a href="https://blog.cnss.io">Blog</a>
+        <a href="https://recruit.cnss.io">Recruit</a>
+        <a href="https://github.com/CNSS">GitHub</a>
+        </div>
+        </div>
+        </div>
+        <marquee behavior="scroll" direction="left" scrollamount="30"><font color="red" size="15px">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="15"><font color="aqua" size="11px">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="25"><font>CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="12"><font color="coral" size="10px">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="28"><font color="red">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="20"><font color="greenyellow" size="13px">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="10"><font size="16px">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="15"><font color="pink" size="20px">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="11"><font color="aqua" size="6px">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="28"><font color="red">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="8"><font color="greenyellow" size="10px">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="20"><font color="pink" size="9px">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="13"><font color="green" size="5px">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="17"><font color="blue" size="5px">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="16"><font color="yellow" size="7px">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="11"><font color="red" size="5px">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="10"><font color="orange" size="8px">CNSS</font></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="20"><font color="gray" size="9px">CNSS</font></marquee>
     </div>
-</body>
 
+    <!-- <div style="text-align: center;">
+        <a href="https://beian.mps.gov.cn/#/query/webSearch?code=11011202001414" rel="noreferrer" target="_blank">京公网安备11011202001414</a>
+        <a href="https://beian.miit.gov.cn/">京ICP备2021009924号</a>
+    </div> -->
+</body>
 </html>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vedd3670a3b1c4e178fdfb0cc912d969e1713874337387" integrity="sha512-EzCudv2gYygrCcVhu65FkAxclf3mYM6BCwiGUm6BEuLzSb5ulVhgokzCZED7yMIkzYVg65mxfIBNdNra5ZFNyQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;88078e322f9284d2&quot;,&quot;r&quot;:1,&quot;version&quot;:&quot;2024.4.1&quot;,&quot;token&quot;:&quot;fd4ff97ff8974a51ac973fd5e73e5bc4&quot;}" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    let a_idx = 0;
+
+    let ac = new AudioContext();
+
+    $(function (){
+        $("body").click(function(e) {
+            const a = new Array("CNSS", "CNSS");
+            const $i = $("<span/>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            const x = e.pageX,
+                y = e.pageY;
+            $i.css({
+                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": color16()
+            });
+            $("body").append($i);
+            load_sound('ciallo.aac');
+            $i.animate({
+                    "top": y - 180,
+                    "opacity": 0
+                },
+                1500,
+                function() {
+                    $i.remove();
+                });
+        });
+    })
+
+    function color16(){
+        const r = Math.floor(Math.random()*256);
+        const g = Math.floor(Math.random()*256);
+        const b = Math.floor(Math.random()*256);
+        return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
+    }
+
+    function load_sound(url_data) {
+        const req = new XMLHttpRequest();
+        req.open('GET', url_data, true);
+        req.responseType = 'arraybuffer';
+        req.onload = function() {
+            ac.decodeAudioData(req.response, function(buffer){
+                const source = ac.createBufferSource();
+                source.buffer = buffer;
+                source.connect(ac.destination);
+                source.start(0);
+            },function (e) {
+                console.info('错误');
+            });
+        }
+        req.send();
+    }
+</script>
