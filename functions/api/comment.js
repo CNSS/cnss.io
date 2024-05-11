@@ -7,8 +7,9 @@ export async function onRequestGet(context) {
             const ps = context.env.MAIN_PAGE_DB.prepare('SELECT comment FROM index_html_comment')
             const data = await ps.all()
             const comments = data.results.map(row => row.comment)
-            return new Response(JSON.stringify({ status: 'success', comment: comments }))
-
+            const response = new Response(JSON.stringify({ status: 'success', comment: comments }))
+            response.headers.set('Cache-Control', 'public, max-age=60')
+            return response
         } else if (params.get('run') === 'add') {
             const commentText = params.get('comment')
             const ip = context.request.headers.get('CF-Connecting-IP')
