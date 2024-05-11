@@ -20,14 +20,17 @@ export async function onRequestGet(context) {
 
             // Check if the comment already exists
             const commentExistsPs = context.env.MAIN_PAGE_DB.prepare('SELECT 1 FROM index_html_comment WHERE comment = ?').bind(commentText)
-            const commentExistsResult = await commentExistsPs.run()
+            // Get all existing indexes
+            const indexPs = context.env.MAIN_PAGE_DB.prepare('SELECT `index` FROM index_html_comment')
+            // Wait for the results
+            const [commentExistsResult, indexResult] = await Promise.all([
+                commentExistsPs.run(),
+                indexPs.all()
+            ])
+            // Process the results
             if (commentExistsResult.results.length > 0) {
                 return new Response(JSON.stringify({ status: 'error', message: 'Comment already exists' }))
             }
-
-            // Get all existing indexes
-            const indexPs = context.env.MAIN_PAGE_DB.prepare('SELECT `index` FROM index_html_comment')
-            const indexResult = await indexPs.all()
             const existingIndexes = indexResult.results.map(row => row.index)
 
             // Find the smallest missing index
