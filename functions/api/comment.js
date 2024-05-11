@@ -16,7 +16,9 @@ export async function onRequestGet(context) {
 
             // Check if the comment parameter is missing
             if (!commentText) {
-                return new Response(JSON.stringify({ status: 'error', message: 'Comment parameter is missing' }))
+                const response = new Response(JSON.stringify({ status: 'error', message: 'Comment parameter is missing' }))
+                response.headers.set('Cache-Control', 'public, max-age=600')
+                return response
             }
 
             // Check if the comment already exists
@@ -30,7 +32,9 @@ export async function onRequestGet(context) {
             ])
             // Process the results
             if (commentExistsResult.results.length > 0) {
-                return new Response(JSON.stringify({ status: 'error', message: 'Comment already exists' }))
+                const response = new Response(JSON.stringify({ status: 'error', message: 'Comment already exists' }))
+                response.headers.set('Cache-Control', 'public, max-age=600')
+                return response
             }
             const existingIndexes = indexResult.results.map(row => row.index)
 
@@ -62,12 +66,18 @@ export async function onRequestGet(context) {
             const insertPs = context.env.MAIN_PAGE_DB.prepare('INSERT INTO index_html_comment (`index`, ip, comment) VALUES (?, ?, ?)').bind(index, ip, commentText)
             await insertPs.run()
             const insertedComment = { index, ip, comment: commentText }
-            return new Response(JSON.stringify({ status: 'success', comment: insertedComment }))
+            const response = new Response(JSON.stringify({ status: 'success', comment: insertedComment }))
+            response.headers.set('Cache-Control', 'no-store')
+            return response
 
         } else {
-            return new Response(JSON.stringify({ status: 'error', message: 'Invalid run parameter' }))
+            const response = new Response(JSON.stringify({ status: 'error', message: 'Invalid run parameter' }))
+            response.headers.set('Cache-Control', 'public, max-age=600')
+            return response
         }
     } catch (error) {
-        return new Response(JSON.stringify({ status: 'error', message: error.message }))
+        const response = new Response(JSON.stringify({ status: 'error', message: error.message }))
+        response.headers.set('Cache-Control', 'no-store')
+        return response
     }
 }
